@@ -1,5 +1,23 @@
 ---
+import '../styles/global.css';
+const pageTitle = "About Nex";
 
+const identity = {
+    firstName: "Nex",
+    country: "India",
+    occupation: "Software Developer",
+    hobbies: "[coding, coding and...coding...]",
+};
+
+const skills = ["HTML", "CSS", "MDX", "Astro", "Javascript", "Figma", "React.js", "Next.js", "GitHub", "Git"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+
+const skillColor = "navy blue";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 
 <html lang="en">
@@ -8,7 +26,19 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>About Nex</title>
+		<title>{pageTitle}</title>
+        <style define:vars={{skillColor, fontWeight, textCase}}>
+            h1 {
+                color: purple;
+                font-size: 4rem;
+            }
+
+            .skill {
+                color: var(--skillColor);
+                font-weight: var(--fontWeight);
+                text-transform: var(--textCase);
+            }
+        </style>
 	</head>
 	<body>
         <a href="/">Back Home</a>
@@ -17,11 +47,32 @@
         <br>
         <a href="/blog">My first Blog</a>
         <hr>
-		<h1>About Nex</h1>
+		<h1>{pageTitle}</h1>
         <h2>This is my BlogSite</h2>
+        <ul>
+            <li>My name is {identity.firstName}.</li>
+            <li>I am from {identity.country}</li>
+            <li>I am a {identity.occupation}</li>
+            <li>My hobbies are {identity.hobbies}</li>
+        </ul>
+        <ul>
+            {skills.map((skill) => <li class="skill">{skill}</li>)}
+        </ul>
         <p>Welcome to Nexus BlogSite, where the journey of a developer unfolds through the eyes of Nex, this digital guide and storyteller. Nex is more than just a character; He is your companion in exploring the ever-evolving world of technology, coding, and innovation.</p>
         <p>At <a href="stella.ai">stella.ai</a> we believe that every line of code tells a story, every challenge is an opportunity, and every developer's journey is worth sharing. Nex brings these stories to life, diving into new experiences, tackling the latest trends, and offering insights that resonate with both seasoned developers and those just starting out.</p>
         <p>Join us as we navigate the highs and lows of the developer's life, discover new tools and technologies, and embrace the ever-changing landscape of the tech industry. Whether you're here to learn, get inspired, or simply enjoy the ride, Nexus BlogSite is your go-to destination for all things tech, guided by Nex.</p>
         <p>Let's code, learn, and grow together with Nex at the helm!</p>
+
+        {happy && <p>I am happy to be learning Astro!</p>}
+
+        {finished && <p>I finished this tutorial!</p>}
+
+        {goal === 3 ? (
+                <p>My goal is to finish in 3 days.</p>
+            ) : (
+                <p>My goal is not 3 days.</p>
+
+            )
+        }
 	</body>
 </html>

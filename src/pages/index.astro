@@ -1,5 +1,6 @@
 ---
-
+import '../styles/global.css';
+const home = "Nexus: BlogSite"
 ---
 
 <html lang="en">
@@ -8,12 +9,18 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{home}</title>
+		<style>
+			h1 {
+				color: purple;
+				font-size: 4rem;
+			}
+		</style>
 	</head>
 	<body>
 		<a href="/about">About Nexus</a>
 		<br>
 		<a href="/blog">My first Blog</a>
-		<h1>Nexus BlogSite</h1>
+		<h1>{home}</h1>
 	</body>
 </html>
